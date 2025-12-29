@@ -1,47 +1,52 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 
 public class PlayerMovement : MonoBehaviour
 {
-    // movement variables
+
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float climbSpeed = 3f;
+    private Vector2 desiredClimbVelocity;
     private Vector2 desiredVelocity;
     private Vector2 currentVelocity;
+    private InputAction moveInput;
 
-
-
-    private InputSystem_Actions playerInput;
     private Vector2 movementInput;
     private Rigidbody2D playerRigidbody;
 
+    // animator
+    private Animator playerAnimator;
+
+
     private void Awake()
     {
-        playerInput = new InputSystem_Actions();
         playerRigidbody = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        playerInput.Player.Enable();
-    }
-
-    private void OnDisable()
-    {
-        playerInput.Player.Disable();
+        moveInput = InputSystem.actions.FindAction("Move");
     }
 
     private void Update()
     {
-        movementInput = playerInput.Player.Move.ReadValue<Vector2>();
+        movementInput = moveInput.ReadValue<Vector2>();
         desiredVelocity = new Vector2(movementInput.x, 0f) * moveSpeed;
+        desiredClimbVelocity = new Vector2(0f, movementInput.y) * climbSpeed;
         FlipSprite();
+        AnimationHandler();
+
     }
 
     private void FixedUpdate()
     {
         currentVelocity = playerRigidbody.linearVelocity;
         CalculateHorizontalMovement();
+        ClimbLadder();
     }
 
 
@@ -53,10 +58,33 @@ public class PlayerMovement : MonoBehaviour
 
     private void FlipSprite()
     {
+        if (movementInput.x == 0) return;
         Vector3 playerScale = transform.localScale;
         playerScale.x = Mathf.Sign(movementInput.x);
         transform.localScale = playerScale;
     }
 
+    private void AnimationHandler()
+    {
+        if (movementInput.x != 0)
+        {
+            playerAnimator.SetBool("isRunning", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("isRunning", false);
+        }
+    }
+    private void ClimbLadder()
+    {
+        if (!playerRigidbody.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        {
+            return;
+        }
+        playerRigidbody.gravityScale = 0f;
+        currentVelocity.y = desiredClimbVelocity.y;
+        playerRigidbody.linearVelocity = currentVelocity;
+
+    }
 
 }
