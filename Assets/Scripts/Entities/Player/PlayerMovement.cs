@@ -19,12 +19,16 @@ public class PlayerMovement : MonoBehaviour
 
     // animator
     private Animator playerAnimator;
+    private LayerMask climbingLayer;
+    private LayerMask groundLayer;
 
 
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+        climbingLayer = LayerMask.GetMask("Climbing");
+        groundLayer = LayerMask.GetMask("Ground");
     }
 
     private void Start()
@@ -39,18 +43,16 @@ public class PlayerMovement : MonoBehaviour
         desiredClimbVelocity = new Vector2(0f, movementInput.y) * climbSpeed;
         FlipSprite();
         AnimationHandler();
-
     }
 
     private void FixedUpdate()
     {
         currentVelocity = playerRigidbody.linearVelocity;
-        CalculateHorizontalMovement();
         ClimbLadder();
+        MoveHorizontal();
     }
 
-
-    private void CalculateHorizontalMovement()
+    private void MoveHorizontal()
     {
         currentVelocity.x = desiredVelocity.x;
         playerRigidbody.linearVelocity = currentVelocity;
@@ -64,27 +66,28 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = playerScale;
     }
 
-    private void AnimationHandler()
-    {
-        if (movementInput.x != 0)
-        {
-            playerAnimator.SetBool("isRunning", true);
-        }
-        else
-        {
-            playerAnimator.SetBool("isRunning", false);
-        }
-    }
     private void ClimbLadder()
     {
-        if (!playerRigidbody.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        if (!playerRigidbody.IsTouchingLayers(climbingLayer))
         {
             return;
         }
         playerRigidbody.gravityScale = 0f;
         currentVelocity.y = desiredClimbVelocity.y;
         playerRigidbody.linearVelocity = currentVelocity;
-
     }
 
+    private void AnimationHandler() // checar state machine para melhorar esse codigo
+    {
+        bool isRunning = Mathf.Abs(playerRigidbody.linearVelocityX) > Mathf.Epsilon;
+        bool isClimbing = playerRigidbody.IsTouchingLayers(climbingLayer);
+        bool isGrounded = playerRigidbody.IsTouchingLayers(groundLayer);
+        playerAnimator.SetBool("isRunning", isRunning && isGrounded);
+        playerAnimator.SetBool("isClimbing", isClimbing && !isGrounded);
+    }
+
+
+
 }
+
+

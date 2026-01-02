@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 5572230494716034399}
   - component: {fileID: 4535140585750766797}
   - component: {fileID: 1982173125653850921}
-  m_Layer: 0
+  - component: {fileID: 1756902686297737557}
+  - component: {fileID: 98468434123116983}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +83,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 182509735
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7894484093430313499, guid: a1716d49ab1e330489ff1973367a5f15, type: 3}
@@ -139,10 +141,10 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!70 &1982173125653850921
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -153,7 +155,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ba376c99445133a4183f82740c357006, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -180,3 +182,33 @@ CapsuleCollider2D:
   m_Offset: {x: -0.04568124, y: -0.1296854}
   m_Size: {x: 0.4010663, y: 0.7416488}
   m_Direction: 0
+--- !u!114 &1756902686297737557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5666275157963820701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe4edf91300d66c4abecfd1352705d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  moveSpeed: 7
+  climbSpeed: 3.5
+--- !u!114 &98468434123116983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5666275157963820701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010782bfb11d6146a4ef4d9e28040fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
+  jumpHeight: 3
+  upwardGravityMultiplier: 0.9
+  downwardGravityMultiplier: 4
+  timeToJumpApex: 0.35
