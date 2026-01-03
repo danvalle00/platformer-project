@@ -131,19 +131,19 @@ TextureImporter:
       name: SPA_Enemy_Right_Red_0
       rect:
         serializedVersion: 2
-        x: 10
+        x: 15
         y: 7
-        width: 32
-        height: 32
+        width: 24
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2cd39dfea0c715a30800000000000000
+      spriteID: 88a1073353ca0d1408f268361a15369e
       internalID: 4202276313728892354
       vertices: []
       indices: 
@@ -153,19 +153,19 @@ TextureImporter:
       name: SPA_Enemy_Right_Red_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 53
         y: 7
-        width: 32
-        height: 32
+        width: 24
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 24bf61a915cc4fb90800000000000000
+      spriteID: 3112b2688e31d0c44b462ba4b63ec6b1
       internalID: -7208912452663706814
       vertices: []
       indices: 
@@ -175,19 +175,19 @@ TextureImporter:
       name: SPA_Enemy_Right_Red_2
       rect:
         serializedVersion: 2
-        x: 86
+        x: 91
         y: 7
-        width: 32
-        height: 32
+        width: 24
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6e8928f868d3f4340800000000000000
+      spriteID: ce8159ebf46ad95499e2eae260e93c01
       internalID: 4850162971843926246
       vertices: []
       indices: 
@@ -197,19 +197,19 @@ TextureImporter:
       name: SPA_Enemy_Right_Red_3
       rect:
         serializedVersion: 2
-        x: 124
-        y: 7
-        width: 32
-        height: 32
+        x: 129
+        y: 9
+        width: 26
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9c53624e5907f42f0800000000000000
+      spriteID: 88b4899595214ef4ebcca42c3ebff141
       internalID: -986446004290701879
       vertices: []
       indices: 
@@ -219,19 +219,19 @@ TextureImporter:
       name: SPA_Enemy_Right_Red_4
       rect:
         serializedVersion: 2
-        x: 162
-        y: 7
-        width: 32
-        height: 32
+        x: 167
+        y: 13
+        width: 26
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f56cc8132c01abc60800000000000000
+      spriteID: df7070319105a4741b8a484fae3db251
       internalID: 7834592928005408351
       vertices: []
       indices: 
@@ -241,19 +241,19 @@ TextureImporter:
       name: SPA_Enemy_Right_Red_5
       rect:
         serializedVersion: 2
-        x: 200
+        x: 203
         y: 7
-        width: 32
-        height: 32
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1def1a5119d571230800000000000000
+      spriteID: 5838dd22927b1f64191bffce2f42152c
       internalID: 3609456504075321041
       vertices: []
       indices: 
@@ -273,7 +273,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":10.0,"y":1.0},"gridSpritePadding":{"x":6.0,"y":6.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":7.0,"y":1.0},"gridSpritePadding":{"x":7.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       SPA_Enemy_Right_Red_0: 4202276313728892354
       SPA_Enemy_Right_Red_1: -7208912452663706814
