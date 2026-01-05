@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 4de6b5018cd11ac4e944289a1efe9bc8
+guid: fdf6267f351a44d47b1da2b10aae8692
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6723963429988506304
-    second: Spikes_0
-  - first:
-      213: -7010832575621253078
-    second: Spikes_1
+      213: 1847120876419691898
+    second: TileVania+Three+Shooting+Star_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,31 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spikes_0
+      name: TileVania+Three+Shooting+Star_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 5
+        y: 7
+        width: 47
+        height: 52
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 11, y: 1}
-        - {x: 8, y: 1}
-        - {x: 4, y: -6}
-        - {x: 0, y: -6}
-        - {x: -4, y: 0}
-        - {x: -7, y: 0}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 0ca9e2f4d11505d50800000000000000
-      internalID: 6723963429988506304
+      spriteID: a75343096aa42a910800000000000000
+      internalID: 1847120876419691898
       vertices: []
       indices: 
       edges: []
@@ -149,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e1cb82bb438bf6944a916face2973e12
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -157,11 +146,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Spikes_0: 6723963429988506304
+      TileVania+Three+Shooting+Star_0: 1847120876419691898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

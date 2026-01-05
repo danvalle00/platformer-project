@@ -6,17 +6,14 @@ public class SlimeMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2f;
     private Vector2 currentVelocity;
-
-    private BoxCollider2D flipCollider;
     private Rigidbody2D slimeRigidbody;
     private LayerMask groundLayer;
-
-
+    private int hazardLayer;
     private void Start()
     {
-        groundLayer = LayerMask.GetMask("Ground");
+        groundLayer = LayerMask.NameToLayer("Ground");
+        hazardLayer = LayerMask.NameToLayer("Hazard");
         slimeRigidbody = GetComponent<Rigidbody2D>();
-        flipCollider = GetComponent<BoxCollider2D>();
     }
 
     private void FixedUpdate()
@@ -31,14 +28,24 @@ public class SlimeMovement : MonoBehaviour
         slimeRigidbody.linearVelocity = currentVelocity;
     }
 
-    private void OnTriggerExit2D(Collider2D collision) // its possible to use raycasts to check this too, probably its more expensive but i think this is more precise
+    /* private void OnTriggerExit2D(Collider2D collision) // its possible to use raycasts to check this too, probably its more expensive but i think this is more precise
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (collision.gameObject.layer == groundLayer)
+        {
+            moveSpeed = -moveSpeed;
+            FlipSprite();
+        }
+    } */
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == hazardLayer || collision.gameObject.layer == groundLayer)
         {
             moveSpeed = -moveSpeed;
             FlipSprite();
         }
     }
+
 
     private void FlipSprite()
     {

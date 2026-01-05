@@ -11,7 +11,8 @@ public class PlayerHurt : MonoBehaviour
     private Animator playerAnimator;
     private Rigidbody2D playerRigidbody;
     private LayerMask enemyLayer;
-    private Vector2 deathKnockback = new(-100f, 20f);
+    private LayerMask hazardLayer;
+    private Vector2 deathKnockback = new(0f, 20f);
 
     private void Start()
     {
@@ -19,12 +20,13 @@ public class PlayerHurt : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         enemyLayer = LayerMask.GetMask("Enemy");
+        hazardLayer = LayerMask.GetMask("Hazard");
 
     }
 
     private void Update()
     {
-        if (playerCollider.IsTouchingLayers(enemyLayer) && isAlive)
+        if (playerCollider.IsTouchingLayers(enemyLayer | hazardLayer) && isAlive)
         {
             isAlive = false;
             Death();
@@ -42,6 +44,3 @@ public class PlayerHurt : MonoBehaviour
 
 
 }
-
-
-
