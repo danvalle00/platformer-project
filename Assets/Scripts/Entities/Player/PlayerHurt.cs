@@ -7,16 +7,26 @@ public class PlayerHurt : MonoBehaviour
     private bool isAlive = true;
     [SerializeField] private InputActionAsset inputActions;
     // private InputSystem_Actions actions; 
-    private Collider2D playerCollider;
+    private CapsuleCollider2D playerCapsuleCollider;
     private Animator playerAnimator;
     private Rigidbody2D playerRigidbody;
     private LayerMask enemyLayer;
     private LayerMask hazardLayer;
     private Vector2 deathKnockback = new(0f, 20f);
 
+    private void OnEnable()
+    {
+        inputActions.FindActionMap("Player").Enable();
+    }
+    private void OnDisable()
+    {
+        inputActions.FindActionMap("Player").Disable();
+    }
+
+
     private void Start()
     {
-        playerCollider = GetComponent<Collider2D>();
+        playerCapsuleCollider = GetComponent<CapsuleCollider2D>();
         playerAnimator = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         enemyLayer = LayerMask.GetMask("Enemy");
@@ -26,7 +36,7 @@ public class PlayerHurt : MonoBehaviour
 
     private void Update()
     {
-        if (playerCollider.IsTouchingLayers(enemyLayer | hazardLayer) && isAlive)
+        if (playerCapsuleCollider.IsTouchingLayers(enemyLayer | hazardLayer) && isAlive)
         {
             isAlive = false;
             Death();
@@ -38,9 +48,10 @@ public class PlayerHurt : MonoBehaviour
         // actions.Player.Disable(); // idk why this didnt work before, it should work the same way as above and i didnt had to string rfercne the action map name
         playerAnimator.SetTrigger("Dying");
         playerRigidbody.AddForce(deathKnockback, ForceMode2D.Impulse); // impulse ou velocity eis a questao
-        playerCollider.enabled = false;
-
+        GameSession.Instance.HandlePlayerDeaths();
     }
+
+
 
 
 }

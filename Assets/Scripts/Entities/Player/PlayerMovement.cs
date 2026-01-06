@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -79,15 +78,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void AnimationHandler() // checar state machine para melhorar esse codigo
     {
-        bool isRunning = Mathf.Abs(playerRigidbody.linearVelocityX) > Mathf.Epsilon;
+        bool isRunning = Mathf.Abs(playerRigidbody.linearVelocityX) > 0.01f;
         bool isClimbing = playerRigidbody.IsTouchingLayers(climbingLayer);
         bool isGrounded = playerRigidbody.IsTouchingLayers(groundLayer);
         playerAnimator.SetBool("isRunning", isRunning && isGrounded);
         playerAnimator.SetBool("isClimbing", isClimbing && !isGrounded);
     }
 
-
-
 }
+
+
+
 
 
